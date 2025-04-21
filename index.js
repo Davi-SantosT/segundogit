@@ -1,1 +1,1 @@
-console.log("Nova alteração no projeto!");
+console.log("Alteração detectada!");
