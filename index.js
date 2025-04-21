@@ -1,1 +1,1 @@
-console.log("Alteração para criar PR!");
+console.log("Alteração para disparar o workflow!");
