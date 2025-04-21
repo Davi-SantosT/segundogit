@@ -1,1 +1,1 @@
-'console.log("Ol�, mundo!");' 
+console.log("Nova alteração no projeto!");
