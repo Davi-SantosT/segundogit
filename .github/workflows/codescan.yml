@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 name: Code Scan
+=======
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+>>>>>>> 071c9ab544fc0538b4d3c400c3db4e1ba13b562f
 
 on:
   push:
@@ -6,6 +13,7 @@ on:
       - main
 
 jobs:
+<<<<<<< HEAD
   analyze:
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +22,28 @@ jobs:
 
       - name: Run Code Analysis
         run: echo "Executando análise de código..."
+=======
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+>>>>>>> 071c9ab544fc0538b4d3c400c3db4e1ba13b562f
