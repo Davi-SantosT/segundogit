@@ -1,1 +1,1 @@
-console.log("Alteração para disparar o workflow!");
+console.log("Testando integração com o GitHub Actions!");
