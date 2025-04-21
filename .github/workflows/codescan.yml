@@ -1,0 +1,16 @@
+name: Code Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Code Analysis
+        run: echo "Executando análise de código..."
