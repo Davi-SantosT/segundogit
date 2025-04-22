@@ -1,17 +1,40 @@
-name: Code Scan
+name: Node.js Package
 
 on:
   push:
     branches:
       - main
+      - novo-branch  # Adicionado para rodar também nessa branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Garante que o repositório completo seja clonado
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
+
+      - run: npm ci
       - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
