@@ -1,0 +1,14 @@
+# Usar a versão oficial do Python
+FROM python:3.10  
+
+# Definir o diretório de trabalho dentro do container
+WORKDIR /app  
+
+# Copiar todos os arquivos do projeto para o container
+COPY . .  
+
+# Instalar as dependências
+RUN pip install --no-cache-dir -r requirements.txt  
+
+# Definir o comando padrão para iniciar o aplicativo
+CMD ["python", "app.py"]  
