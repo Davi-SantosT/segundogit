@@ -1,17 +1,18 @@
-const express = require("express");  
-const app = express();  
+const express = require("express");
 
-const PORT = 8884;  
+const app = express();
+const PORT = 8890;
 
-app.use((req, res, next) => {  
+app.use((req, res, next) => {
+    console.log("Referer recebido:", req.headers.referer || "Nenhum referer enviado");
     res.setHeader("Access-Control-Allow-Origin", "*");
-    next();  
-});  
+    next();
+});
 
-app.get("/", (req, res) => {  
-    res.send("Servidor rodando na porta 8884! 🚀");  
-});  
+app.get("/", (req, res) => {
+    res.json({ message: "API funcionando!", referer: req.headers.referer || "Nenhum referer enviado" });
+});
 
-app.listen(PORT, () => {  
-    console.log(`Servidor iniciado em http://localhost:${PORT}`);  
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
