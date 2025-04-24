@@ -11,5 +11,5 @@ jobs:
       - name: Enviar alerta para Discord
         uses: Ilshidur/action-discord@master
         env:
-          DISCORD_WEBHOOK: ${{ secrets.https://discord.com/api/webhooks/1365068808951431379/G4cSB9MkuShip4xs0ryrvwpbnCGSxnKoKI-c_Xzp3uG_RANAnSb-HigUOYTLCngfx6_N }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_MESSAGE: "🚀 Novo commit no repositório! Confira: ${{ github.event.head_commit.url }}"
