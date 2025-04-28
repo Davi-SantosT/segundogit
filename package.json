@@ -1,9 +1,10 @@
 {
   "name": "segundogit",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "index.js",
   "scripts": {
-  "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo \"Nenhum teste definido\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
     "url": "https://github.com/Davi-SantosT/segundogit/issues"
   },
   "homepage": "https://github.com/Davi-SantosT/segundogit#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
   "description": ""
 }
